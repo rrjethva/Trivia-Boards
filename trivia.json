@@ -1,0 +1,110 @@
+[
+    {
+        "category": "animals",
+        "question": "Which of these dinosaurs lived during the Jurassic Period?",
+        "a": "Triceratops",
+        "b": "Stegosaurus",
+        "c": "Eoraptor",
+        "d": "Tyrannosaurus Rex",
+        "correct": "b"
+    },
+    {
+        "category": "animals",
+        "question": "Which of the following is NOT a characteristic of reptiles?",
+        "a": "They are warmblooded",
+        "b": "Most lay eggs",
+        "c": "They have thick scaly skin",
+        "d": "They breathe with lungs",
+        "correct": "a"
+    },
+    {
+        "category": "animals",
+        "question": "Which of these mammals lays eggs?",
+        "a": "echidna",
+        "b": "bongo",
+        "c": "kiwi",
+        "d": "Southern right whale",
+        "correct": "a"
+    },
+    {
+        "category": "animals",
+        "question": "What is the term for a young horse?",
+        "a": "cub",
+        "b": "cygnet",
+        "c": "foal",
+        "d": "calf",
+        "correct": "c"
+    },
+    {
+        "category": "animals",
+        "question": "What is the fastest animal on Earth?",
+        "a": "cheetah",
+        "b": "peregrine falcon",
+        "c": "leopard",
+        "d": "Hyena",
+        "correct": "b"
+    },
+    {
+        "category": "animals",
+        "question": "Which of these animals is NOT endangered?",
+        "a": "red wolf",
+        "b": "sperm whale",
+        "c": "capybara",
+        "d": "Jaguar",
+        "correct": "c"
+    },
+    {
+        "category": "animals",
+        "question": "Which animal could not survive in Africa?",
+        "a": "hippopotamus",
+        "b": "tsetse fly",
+        "c": "wildcat",
+        "d": "Giraffe",
+        "correct": "c"
+    },
+    {
+        "category": "animals",
+        "question": "What is the most poisonous snake on the planet?",
+        "a": "cobra",
+        "b": "inland taipan",
+        "c": "Western diamondback Rattlesnake",
+        "d": "black mamba",
+        "correct": "b"
+    },
+    {
+        "category": "animals",
+        "question": "Which is the biggest species of shark?",
+        "a": "great white shark",
+        "b": "hammerhead shark",
+        "c": "Whale shark",
+        "d": "basking shark",
+        "correct": "c"
+    },
+    {
+        "category": "animals",
+        "question": "What is a distinguishing feature of a marsupial?",
+        "a": "They change color to blend in with their environment",
+        "b": "They live most of their lives in trees",
+        "c": "They have very long necks",
+        "d": "They carry their young in an external pouch",
+        "correct": "d"
+    },
+    {
+        "category": "movies",
+        "question": "What was the top-grossing film for 2002?",
+        "a": "Signs",
+        "b": "Star Wars: Episode II",
+        "c": "My Big Fat Greek Wedding",
+        "d": "Spiderman",
+        "correct": "d"
+    },
+    {
+        "category": "movies",
+        "question": "Which 2005 film's tagline is 'Better Late Than Never'?",
+        "a": "Fantastic Four",
+        "b": "The Hitchhiker's Guide to the Galaxy",
+        "c": "The Ring Two",
+        "d": "The 40 Year Old Virgin",
+        "correct": "d"
+    }
+]
