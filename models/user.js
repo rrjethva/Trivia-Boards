@@ -25,3 +25,13 @@ module.exports = function(sequelize, DataTypes) {
   });
   return User;
 };
+
+User.associate = function (models) {
+  User.belongsToMany(models.Score, {
+    through: "LeaderBoard",
+    as: "Score",
+    foreignKey: "usernameId",
+    otherKey: "scoreId"
+  });
+  return User;
+};
