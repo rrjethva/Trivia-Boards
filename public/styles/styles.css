@@ -1,3 +1,6 @@
+body {
+  background-color: #18D6B8;
+}
 .list-group-item {
   line-height: 2.5;
 }
@@ -9,16 +12,15 @@
   /* border: 2px solid black; */
   height: 100vh;
 }
-
 #welcome-card {
   width: 26rem;
   border: 1px solid black;
 }
-body {
-  background-color: #18D6B8;
-}
-
 #error-card {
+  width: 35rem;
+  border: 1px solid black;
+}
+#ready-card {
   width: 35rem;
   border: 1px solid black;
 }
