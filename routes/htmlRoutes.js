@@ -6,9 +6,9 @@ module.exports = function (app) {
     res.render("login", {});
   });
 
-  app.get("/members", function (req, res) {
-    res.render("members", {});
-  });
+  // app.get("/members", function (req, res) {
+  //   res.render("members", {});
+  // });
 
   app.get("/boards", function (req, res) {
     res.render("boards", {});
