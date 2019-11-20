@@ -7,9 +7,9 @@ module.exports = function (sequelize, DataTypes) {
     });
     
     Score.associate = function (models) {
-        Score.belongsToMany(models.UserData, {
+        Score.belongsToMany(models.User, {
             through: "LeaderBoard",
-            as: "UserName",
+            as: "username",
             foreignKey: "scoreId",
             otherKey: "usernameId"
         });
