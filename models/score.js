@@ -5,16 +5,14 @@ module.exports = function (sequelize, DataTypes) {
         correct: DataTypes.INTEGER,
         totalScore: DataTypes.INTEGER
     });
-    return Score;
-};
-
-Score.associate = function (models) {
-    Score.belongsToMany(models.UserData, {
-        through: "LeaderBoard",
-        as: "UserName",
-        foreignKey: "scoreId",
-        otherKey: "usernameId"
-    });
-
+    
+    Score.associate = function (models) {
+        Score.belongsToMany(models.User, {
+            through: "LeaderBoard",
+            as: "username",
+            foreignKey: "scoreId",
+            otherKey: "usernameId"
+        });
+    };
     return Score;
 };
