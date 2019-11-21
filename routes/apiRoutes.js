@@ -31,6 +31,8 @@ app.post("/api/login", passport.authenticate("local"), function(req, res) {
 // ELSE send an error...
 
 app.post("/api/signup", function(req, res) {
+  console.log(req.body.email)
+  console.log(req.body.password)
   db.User.create({
     email: req.body.email,
     password: req.body.password
@@ -55,7 +57,7 @@ app.post("/api/signup", function(req, res) {
 
   // Gets user data for use in client-side JS...
   app.get("/api/user_data", function(req, res) {
-
+    console.log(req.user);
     // IF the user is not logged in....
     if (!req.user) {
       // Return empty JSON object...
