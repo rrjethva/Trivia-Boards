@@ -31,6 +31,8 @@ app.post("/api/login", passport.authenticate("local"), function(req, res) {
 // ELSE send an error...
 
 app.post("/api/signup", function(req, res) {
+  console.log(req.body.email)
+  console.log(req.body.password)
   db.User.create({
     email: req.body.email,
     password: req.body.password
