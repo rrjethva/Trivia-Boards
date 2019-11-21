@@ -1,5 +1,23 @@
+@font-face {
+  font-family: 'Vintages';
+  src: url("../styles/Vintages.woff2") format('woff2'),
+      url("../styles/Vintages.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
+  font-family: 'Vintages';
   background-color: #18D6B8;
+}
+h5 {
+  font-size: 50px;
+}
+input {
+  font-size: 25px;
+}
+label {
+  font-size: 25px;
 }
 .list-group-item {
   line-height: 2.5;
