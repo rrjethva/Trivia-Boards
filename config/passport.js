@@ -1,6 +1,6 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-var db = require("../models/user");
+var db = require("../models");
 
 // Configures passport.js to use a new LocalStrategy for login (username[email]/password);
 passport.use(new LocalStrategy(
@@ -8,6 +8,7 @@ passport.use(new LocalStrategy(
     // Username in the form of an email
     { usernameField: "email" },
     function(email, password, done) {
+      console.log(email)
       // When user submits login creds, this code will execute.
       db.User.findOne({
 
