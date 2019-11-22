@@ -52,3 +52,22 @@ label {
   width: 35rem;
   border: 1px solid black;
 }
+#member-row {
+  width: 85vw;
+  height: 85vh;
+  border: 2px solid black;
+  display: flex;
+}
+#default-image {
+  width: 100%;
+}
+#avatar-col {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+#stats-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
