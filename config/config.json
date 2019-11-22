@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Gnocchi420*",
+    "password": "null",
     "database": "score_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
