@@ -2,6 +2,7 @@ $(document).ready(function () {
   // Updates members.html to display the username of current user...
   let users;
   let statsCol = $('#stats-col');
+  console.log(statsCol);
   // Updates members.html to display the username of current user...
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.email);
@@ -9,32 +10,20 @@ $(document).ready(function () {
 
   function getUsers() {
     $.get('/api/user_data', function (data) {
-      console.log("Users", data);
+      // console.log("Users", data);
       users = data;
       if (!users) {
         displayEmpty();
         console.log('empty');
       }
       else {
-        initializeRows();
-        console.log('hello');
+        statsCol.empty();
+        statsCol.append(addUsersData(users));
       }
     });
+
   }
   getUsers();
-
-
-
-  function initializeRows() {
-    statsCol.empty();
-    let usersToAdd = [];
-    for (let i = 0; i < users.length; i++) {
-      usersToAdd.push(addUsersData(users[i]));
-      usersToAdd.push('hello');
-    }
-    // console.log(usersToAdd);
-    statsCol.append(usersToAdd);
-  }
 
   function addUsersData(user) {
     var newUserCard = $("<div>");
@@ -45,15 +34,11 @@ $(document).ready(function () {
     let newUserQuestions = $("<h2>");
     let newUserPercentage = $("<h2>");
     // let newUserOverall = $("<h2>");
-    newUserPoints.text(user.totalScore);
+    newUserPoints.text(user.email);
     newUserQuestions.text(user.answered);
     newUserPercentage.text(user.correct / user.answered);
     // newUserOverall.text(user.);
 
-
-    var formattedDate = new Date(user.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    newUserDate.text(formattedDate);
     newUserTitle.append("Your Profile");
 
     var newTotalPoints = $("<div>");
