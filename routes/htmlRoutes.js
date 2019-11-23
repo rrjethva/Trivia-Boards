@@ -1,4 +1,5 @@
 var db = require("../models");
+var questions = require("../public/js/questions")
 
 module.exports = function (app) {
   app.get("/", function (req, res) {
@@ -14,8 +15,9 @@ module.exports = function (app) {
     res.render('members', {});
   })
 
-  app.get("/trivia", function(req, res) {
-    res.render('trivia', {});
+  app.get("/game", function(req, res) {
+    console.log(questions.category.animals[0])
+    res.render('game', {questions: [...questions.category.animals]});
   })
 
   app.get("/signup", function (req, res) {

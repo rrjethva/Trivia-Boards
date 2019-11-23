@@ -1,7 +1,8 @@
+
 var questions = {
     category: {
-        animals: {
-            q1: {
+        animals: [
+            {
                 question: "Which of these dinosaurs lived during the Jurassic Period?",
                 answers: {
                 a: "Triceratops",
@@ -11,7 +12,7 @@ var questions = {
                 },
                 correct: "b"
             },
-            q2: {
+            {
                 question: "Which of the following is NOT a characteristic of reptiles?",
                 answers: {
                 a: "They are warmblooded",
@@ -21,7 +22,7 @@ var questions = {
                 },
                 correct: "a"
             },
-            q3: {
+            {
                 question: "Which of these mammals lay eggs?",
                 answers: {
                 a: "Echidna",
@@ -31,7 +32,7 @@ var questions = {
                 },
                 correct: "a"
             },
-            q4: {
+            {
                 question: "What is the term for a young horse?",
                 answers: {
                 a: "Cub",
@@ -41,7 +42,7 @@ var questions = {
                 },
                 correct: "c"
             },
-            q4: {
+            {
                 question: "What is the fastest animal on Earth?",
                 answers: {
                 a: "Cheetah",
@@ -51,7 +52,7 @@ var questions = {
                 },
                 correct: "b"
             },
-            q5: {
+            {
                 question: "Which of these animals is NOT endangered?",
                 answers: {
                 a: "Red wolf",
@@ -61,7 +62,7 @@ var questions = {
                 },
                 correct: "c"
             },
-            q6: {
+            {
                 question: "Which animal could not survive in Africa?",
                 answers: {
                 a: "Hippopotamus",
@@ -71,7 +72,7 @@ var questions = {
                 },
                 correct: "c"
             },
-            q7: {
+            {
                 question: "What is the most poisonous snake on the planet?",
                 answers: {
                 a: "Cobra",
@@ -81,7 +82,7 @@ var questions = {
                 },
                 correct: "b"
             },
-            q8: {
+            {
                 question: "Which is the biggest species of shark?",
                 answers: {
                 a: "Great White shark",
@@ -91,7 +92,7 @@ var questions = {
                 },
                 correct: "c"
             },
-            q9: {
+            {
                 question: "What is a distinguishing feature of a marsupial?",
                 answers: {
                 a: "They change color to blend in with their environment",
@@ -101,9 +102,8 @@ var questions = {
                 },
                 correct: "d"
             },
-        },
+        ],
         geography: {
-
         },
         movies: {
             q1: {
@@ -128,7 +128,6 @@ var questions = {
             },
         },
         music: {
-
         },
         sports: {
 
@@ -136,6 +135,8 @@ var questions = {
     }
 }
 
+
+module.exports = questions;
 
 /*
 //////////////////////////////////////////////////
