@@ -14,6 +14,10 @@ module.exports = function (app) {
     res.render('members', {});
   })
 
+  app.get("/trivia", function(req, res) {
+    res.render('trivia', {});
+  })
+
   app.get("/signup", function (req, res) {
     res.render("signup", {});
   });
