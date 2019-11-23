@@ -55,14 +55,14 @@ label {
 #member-row {
   width: 85vw;
   height: 85vh;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
 }
 #default-image {
   width: 100%;
 }
 #avatar-col {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
 }
