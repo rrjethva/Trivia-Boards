@@ -5,7 +5,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body {
   font-family: 'Vintages';
   background-color: #18D6B8;
@@ -70,4 +69,123 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+.question {
+  color: white;
+  background: rgba(48, 48, 48, 0.945);
+  border: 2px rgb(31, 31, 31) solid;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.658);
+}
+.questionDiv {
+  margin-top: 20px;
+  background: rgb(48, 48, 48);
+  padding: 15px;
+  border: 10px rgb(29, 29, 29) solid;
+  box-shadow: 0px 0px 50px 20px rgba(0, 0, 0, 0.658);
+  min-height: 350px;
+}
+.answer {
+  width: 100%;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.658);
+}
+.answerLabel {
+  text-align: left !important;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(20, 20, 20);
+}
+.choiceA, .choiceB, .choiceC, .choiceD {
+  float: left;
+}
+.answerRow1, .answerRow2, .answerRow3, .answerRow4 {
+  margin-bottom: 5px;
+}
+.correctAnswer {
+  margin-top: 15px;
+  color: white;
+  background: rgb(48, 48, 48);
+  border: 2px rgb(31, 31, 31) solid;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.658);
+}
+.gameTitle {
+  font-size: 60px;
+  color: white;
+  filter: drop-shadow(0px 0px 10px black);
+}
+.question1, .question2, .question3, .question4, 
+.question5, .question6, .question7, .question8,
+.question9, .question10 {
+  display: none;
+}
+.correctAnswerQuestion1, .correctAnswerQuestion2,
+.correctAnswerQuestion3, .correctAnswerQuestion4,
+.correctAnswerQuestion5, .correctAnswerQuestion6,
+.correctAnswerQuestion7, .correctAnswerQuestion8,
+.correctAnswerQuestion9, .correctAnswerQuestion10 {
+  user-select: none;
+  pointer-events: none;
+  cursor: help;
+  display: none;
+}
+.questionNumberLabel {
+  color: white;
+  filter: drop-shadow(0px 0px 5px black);
+}
+#questionNumber {
+  color: white;
+  filter: drop-shadow(0px 0px 8px black);
+}
+
+.a {
+  color: rgb(0,123,255);
+}
+
+.b {
+  color: rgb(255,193,7);
+}
+
+.c {
+  color: rgb(40,167,69);
+}
+
+.d {
+  color: rgb(220,53,69);
+}
+.animals {
+  color: rgb(255, 117, 37);
+}
+.userAnswerLabel {
+  position: relative;
+  left: -15px;
+}
+.correctAnswerLabel {
+  position: relative;
+  right: -15px;
+}
+#triviaCategory {
+  margin-top: -20px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0px 0px 5px black);
+  color: white;
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  background: rgb(48, 48, 48);
+  border-top: 10px rgb(29, 29, 29) solid;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+#correctAnswersLabel {
+  color: rgb(47, 255, 47);
+  text-shadow: 0px 0px 10px rgb(0, 70, 0);
+}
+#incorrectAnswersLabel {
+  float: right;
+  color: rgb(255, 0, 0);
+  text-shadow: 0px 0px 5px rgb(75, 0, 0);
 }

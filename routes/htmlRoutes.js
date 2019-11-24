@@ -15,9 +15,8 @@ module.exports = function (app) {
     res.render('members', {});
   })
 
-  app.get("/game", function(req, res) {
-    console.log(questions.category.animals[0])
-    res.render('game', {questions: [...questions.category.animals]});
+  app.get("/game/category/animals", function(req, res) {
+    res.render('game', {questions: [...questions.category.animals], category: "animals"});
   })
 
   app.get("/signup", function (req, res) {
