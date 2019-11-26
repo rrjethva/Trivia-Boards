@@ -1,0 +1,53 @@
+{{#each questions }}
+{{!-- QUESTION --}}
+<div class="container questionDiv question{{this.id}}" data-id="{{this.id}}" data-background="{{this.background}}"
+  style="min-height: 350px; max-height: 450px">
+  <div class="row text-center">
+    <div class="col">
+      <h2 class="question" data-correct="{{this.correct}}" data-id="{{this.id}}">{{this.question}}</h2>
+    </div>
+  </div>
+
+  {{!-- QUESTION BUTTONS --}}
+  <div class="row text-center answerRow1">
+    <div class="col">
+      <button class="btn btn-primary answer answerA answer{{this.id}}" data-id="{{this.id}}" data-answer="a"
+        data-correct="{{this.correct}}">
+        <span class="answerLabel"><span class="choiceA">A:</span> {{this.answers.a}}</span>
+      </button>
+    </div>
+  </div>
+  <div class="row text-center answerRow2">
+    <div class="col">
+      <button class="btn btn-warning answer answerB answer{{this.id}}" data-id="{{this.id}}" data-answer="b"
+        data-correct="{{this.correct}}">
+        <span class="answerLabel"><span class="choiceB">B:</span> {{this.answers.b}}</span>
+      </button>
+    </div>
+  </div>
+  <div class="row text-center answerRow3">
+    <div class="col">
+      <button class="btn btn-success answer answerC answer{{this.id}}" data-id="{{this.id}}" data-answer="c"
+        data-correct="{{this.correct}}">
+        <span class="answerLabel"><span class="choiceC">C:</span> {{this.answers.c}}</span>
+      </button>
+    </div>
+  </div>
+  <div class="row text-center answerRow4">
+    <div class="col">
+      <button class="btn btn-danger answer answerD answer{{this.id}}" data-id="{{this.id}}" data-answer="d"
+        data-correct="{{this.correct}}">
+        <span class="answerLabel"><span class="choiceA">D:</span> {{this.answers.d}}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="correctAnswer correctAnswerQuestion{{this.id}} text-center">
+    <h2><span class="userAnswerLabel">YOU ANSWERED: <span class="userAnsweredQuestion{{this.id}}">NULL</span></span>
+      <span class="correctAnswerLabel">CORRECT ANSWER: <span class="{{this.correct}}">{{this.correct}}</span></span>
+    </h2>
+  </div>
+
+
+</div>
+{{/each}}
