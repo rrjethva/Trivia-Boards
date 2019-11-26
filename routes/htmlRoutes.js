@@ -18,6 +18,13 @@ module.exports = function (app) {
   app.get("/game/category/animals", function(req, res) {
     res.render('game', {questions: [...questions.category.animals], category: "animals"});
   })
+  app.get("/game/category/movies", function(req, res) {
+    res.render('game', {questions: [...questions.category.movies], category: "movies"});
+  })
+  app.get("/game/category/sports", function(req, res) {
+    res.render('game', {questions: [...questions.category.sports], category: "sports"});
+  })
+
 
   app.get("/signup", function (req, res) {
     res.render("signup", {});

@@ -1,62 +1,18 @@
 <h1 class="gameTitle text-center">TRIVIA BOARDS:</h1>
-<h2 id="triviaCategory" class="text-center"><span id="categoryEmojisLeft"></span>
+<h2 id="triviaCategory" class="text-center">
+  <span id="categoryEmojisLeft"></span>
   <span id="categoryLabel" class="{{category}}">{{category}}</span>
   <span id="categoryEmojisRight"></span>
 </h2>
 <h3 class="questionNumberLabel text-center">QUESTION <span id="questionNumber">1</span>:</h3>
-{{#each questions }}
-{{!-- QUESTION --}}
-<div class="container questionDiv question{{this.id}}" data-id="{{this.id}}" 
-data-background="{{this.background}}" style="min-height: 350px; max-height: 450px">
-  <div class="row text-center">
-    <div class="col">
-      <h2 class="question" data-correct="{{this.correct}}" data-id="{{this.id}}">{{this.question}}</h2>
-    </div>
-  </div>
 
-  {{!-- QUESTION BUTTONS --}}
-  <div class="row text-center answerRow1">
-    <div class="col">
-      <button class="btn btn-primary answer answerA answer{{this.id}}" data-id="{{this.id}}" data-answer="a"
-        data-correct="{{this.correct}}">
-        <span class="answerLabel"><span class="choiceA">A:</span> {{this.answers.a}}</span>
-      </button>
-    </div>
-  </div>
-  <div class="row text-center answerRow2">
-    <div class="col">
-      <button class="btn btn-warning answer answerB answer{{this.id}}" data-id="{{this.id}}" data-answer="b"
-        data-correct="{{this.correct}}">
-        <span class="answerLabel"><span class="choiceB">B:</span> {{this.answers.b}}</span>
-      </button>
-    </div>
-  </div>
-  <div class="row text-center answerRow3">
-    <div class="col">
-      <button class="btn btn-success answer answerC answer{{this.id}}" data-id="{{this.id}}" data-answer="c"
-        data-correct="{{this.correct}}">
-        <span class="answerLabel"><span class="choiceC">C:</span> {{this.answers.c}}</span>
-      </button>
-    </div>
-  </div>
-  <div class="row text-center answerRow4">
-    <div class="col">
-      <button class="btn btn-danger answer answerD answer{{this.id}}" data-id="{{this.id}}" data-answer="d"
-        data-correct="{{this.correct}}">
-        <span class="answerLabel"><span class="choiceA">D:</span> {{this.answers.d}}</span>
-      </button>
-    </div>
-  </div>
+{{> questions/questions}}
 
-  <div class="correctAnswer correctAnswerQuestion{{this.id}} text-center">
-    <h2><span class="userAnswerLabel">YOU ANSWERED: <span class="userAnsweredQuestion{{this.id}}">NULL</span></span>
-      <span class="correctAnswerLabel">CORRECT ANSWER: <span class="{{this.correct}}">{{this.correct}}</span></span>
-    </h2>
-  </div>
-
-
+<div id="continueScreen" class="text-center">
+  <h1>YOU GOT <span id="finalScore number">0</span> OUT OF 10 QUESTIONS CORRECT!</h1>
+  <br>
+  <button id="continueButton" class="btn btn-primary">GO TO THE LEADERBOARDS!</button>
 </div>
-{{/each}}
 
 <div id="footer">
   <div class="row">
@@ -73,22 +29,35 @@ data-background="{{this.background}}" style="min-height: 350px; max-height: 450p
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-  if ($("#categoryLabel").text("animals")) {
-    $("#categoryEmojisLeft").html("&#128049;");
-    $("#categoryEmojisRight").html("&#128054;");
-  }
+
   var questionNumber = 1;
   var correctAnswers = 0;
   var incorrectAnswers = 0;
   var clickingEnabled = true;
-  for (i = 0; i < 10; i++) {
-  $(".question" + i).css("background", "url(" + $(".question" + i).data("background") + ")");
-      console.log($(".question" + i).css("background"));
+  var intervalId;
+  var timeRemaining = 21;
+
+  if ($("#categoryLabel").hasClass("movies")) {
+    $("#categoryEmojisLeft").html("&#127916;");
+    $("#categoryEmojisRight").html("&#127909;");
   }
-  
+  else if ($("#categoryLabel").hasClass("animals")) {
+    $("#categoryEmojisLeft").html("&#128049;");
+    $("#categoryEmojisRight").html("&#128054;");
+  }
+  else if ($("#categoryLabel").hasClass("sports")) {
+    $("#categoryEmojisLeft").html("&#9917;");
+    $("#categoryEmojisRight").html("&#127944;");
+  }
+  for (i = 0; i < 10; i++) {
+    $(".question" + i).css("background", "url(" + $(".question" + i).data("background") + ")");
+    console.log($(".question" + i).css("background"));
+  }
+
   $("#questionNumber").text(questionNumber);
   $("#correctAnswersNumber").text(correctAnswers);
   $("#incorrectAnswersNumber").text(incorrectAnswers);
+
 
   function nextQuestion(clickingEnabled) {
     $(".question" + questionNumber).fadeIn(1000);
@@ -116,6 +85,15 @@ data-background="{{this.background}}" style="min-height: 350px; max-height: 450p
           questionNumber++;
           if (questionNumber === 11) {
             $(".questionNumberLabel").remove();
+            /* ==============================================
+            SENDS THE USER'S SCORE TO THE SERVER TO ADD TO
+            THE USERBOARDS/SEQUELIZE INTO PLAYER STATS TABLE
+            =================================================
+              $.post("/api/user", function(gameData) {
+                
+              })
+            */
+            $("#continueScreen").fadeIn();
           }
           $("#questionNumber").text(questionNumber);
           $(".question" + questionNumber).fadeIn();
@@ -130,4 +108,6 @@ data-background="{{this.background}}" style="min-height: 350px; max-height: 450p
   }
 
   nextQuestion(clickingEnabled);
+
+
 </script>

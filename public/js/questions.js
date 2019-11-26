@@ -133,35 +133,270 @@ var questions = {
                 background: "https://img.freepik.com/free-vector/colorful-doodle-animals-words-pattern_52683-6876.jpg?size=338&ext=jpg"
             },
         ],
-        geography: {
-        },
-        movies: {
-            q1: {
-                question: "What was the top-grossing film for 2002?",
+        movies: [
+            {
+                id: 1,
+                category: "movies",
+                question: "What was the first movie by Pixar to receive a rating higher than G in the United States?",
                 answers: {
-                a: "Signs",
-                b: "Star Wars: Episode II",
-                c: "My Big Fat Greek Wedding",
-                d: "Spiderman",
+                a: "Toy Story",
+                b: "Wreck-It Ralph",
+                c: "The Incredibles",
+                d: "Finding Nemo",
                 },
-                correct: "d"
+                correct: "c",
+                background: "https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0308/5610/movie_shop_preview.png"
             },
-            q2: {
-                question: "Which 2005 film's tagline is \"Better Late Than Never\"?",
+            {
+                id: 2,
+                category: "movies",
+                question: "In The Wizard of Oz (1939), what was used to simulate snow during the poppy scene?",
                 answers: {
-                a: "Fantastic Four",
-                b: "The Hitchhiker's Guide to the Galaxy",
-                c: "The Ring Two",
-                d: "The 40 Year Old Virgin",
+                a: "Powdered Sugar",
+                b: "Asbestos",
+                c: "Cornflakes",
+                d: "Coconut Flakes",
                 },
-                correct: "d"
+                correct: "b",
+                background: "https://previews.123rf.com/images/balabolka/balabolka1512/balabolka151200123/49422158-cartoon-doodles-hand-drawn-cinema-movie-film-seamless-pattern-vector-endless-background.jpg"
             },
-        },
-        music: {
-        },
-        sports: {
-
-        }
+            {
+                id: 3,
+                category: "movies",
+                question: "In Se7en, what does detective Mills (Brad Pitt) learn to be in the box?",
+                answers: {
+                a: "A written confession by the killer",
+                b: "A giftwrapped picture frame of Mill's wife",
+                c: "Nothing.",
+                d: "The head of Mills' wife",
+                },
+                correct: "d",
+                background: "https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0372/3678/rmovies_popcorn_pattern_1_white_shop_preview.png"
+            },
+            {
+                id: 4,
+                category: "movies",
+                question: "What country does The Hunger Games take place in?",
+                answers: {
+                a: "Panem",
+                b: "Narnia",
+                c: "Pangea",
+                d: "Gondor",
+                },
+                correct: "a",
+                background: "https://images.fabric.com/images/693/693/0579999.jpg"
+            },
+            {
+                id: 5,
+                category: "movies",
+                question: "Name the movie: 'Of all the gin joints, in all the towns, in all the world, she walks into mine.",
+                answers: {
+                a: "Casablanca",
+                b: "The Breakfast Club",
+                c: "Dead Poets Society",
+                d: "Fast Times at Ridgemont High",
+                },
+                correct: "a",
+                background: "http://st.depositphotos.com/1510192/3850/v/950/depositphotos_38509425-stock-illustration-seamless-pattern-of-movie-elements.jpg"
+            },
+            {
+                id: 6,
+                category: "movies",
+                question: "In which movie did 007 first utter the iconic phrase: 'Bond... James, Bond...",
+                answers: {
+                a: "Goldfinger",
+                b: "From Russia With Love",
+                c: "Diamonds Are Forever",
+                d: "Dr. No",
+                },
+                correct: "d",
+                background: "https://image.freepik.com/free-vector/movie-cinema-icons-seamless-pattern-with-doodle-style-white-background_7130-940.jpg"
+            },
+            {
+                id: 7,
+                category: "movies",
+                question: "What movie features Jack Nicholson screaming, 'You can't handle the truth'?",
+                answers: {
+                a: "The Shining",
+                b: "A Few Good Men",
+                c: "Terms of Endearment",
+                d: "Batman (1989)",
+                },
+                correct: "b",
+                background: "https://as2.ftcdn.net/jpg/01/27/91/65/500_F_127916580_Ne2GuBzPijFZahsEpTHuzZcCasaALxBZ.jpg"
+            },
+            {
+                id: 8,
+                category: "movies",
+                question: "Who is the caretaker of hogwarts and has a cat named Mrs. Norris?",
+                answers: {
+                a: "Rubeus Hagrid",
+                b: "Argus Filch",
+                c: "Nearly Headless Nick",
+                d: "Filius Flitwick",
+                },
+                correct: "b",
+                background: "https://as2.ftcdn.net/jpg/01/84/18/31/500_F_184183119_BNAcu82RxJyvB4gKhlGDMToFr1I0nvUp.jpg"
+            },
+            {
+                id: 9,
+                category: "movies",
+                question: "What is the name of Russell Crowe's character in Gladiator?",
+                answers: {
+                a: "Primus Secundus Aurelius",
+                b: "Lucius Aurelius Commodus",
+                c: "Maximus Decimus Meridius",
+                d: "Marcus Aurelius Augustus",
+                },
+                correct: "c",
+                background: "http://st.depositphotos.com/1510192/3850/v/950/depositphotos_38509425-stock-illustration-seamless-pattern-of-movie-elements.jpg"
+            },
+            {
+                id: 10,
+                category: "movies",
+                question: "Who played Dracula in the 1931 vampire-horror film 'Dracula'?",
+                answers: {
+                a: "Gary Oldman",
+                b: "Mandy Patinkin",
+                c: "Luke Evans",
+                d: "Bela Lugosi",
+                },
+                correct: "d",
+                background: "https://images.fabric.com/images/693/693/0579999.jpg"
+            },
+        ],
+        sports: [
+            {
+                id: 1,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 2,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 3,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 4,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 5,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 6,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 7,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 8,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 9,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+            {
+                id: 10,
+                category: "sports",
+                question: "",
+                answers: {
+                a: "",
+                b: "",
+                c: "",
+                d: "",
+                },
+                correct: "",
+                background: ""
+            },
+        ],
     }
 }
 
