@@ -1,8 +1,113 @@
-  {{#each questions}}
+<h1 class="gameTitle text-center">TRIVIA BOARDS:</h1>
+<h2 id="triviaCategory" class="text-center">
+  <span id="categoryEmojisLeft"></span>
+  <span id="categoryLabel" class="{{category}}">{{category}}</span>
+  <span id="categoryEmojisRight"></span>
+</h2>
+<h3 class="questionNumberLabel text-center">QUESTION <span id="questionNumber">1</span>:</h3>
 
-  	   <li>{{this.question}}</li>
+{{> questions/questions}}
 
-  {{/each}}
+<div id="continueScreen" class="text-center">
+  <h1>YOU GOT <span id="finalScore number">0</span> OUT OF 10 QUESTIONS CORRECT!</h1>
+  <br>
+  <button id="continueButton" class="btn btn-primary">GO TO THE LEADERBOARDS!</button>
+</div>
+
+<div id="footer">
+  <div class="row">
+    <div class="col">
+      <h3 id="correctAnswersLabel">CORRECT &#10004;: <span id="correctAnswersNumber"></span></h3>
+      </h3>
+    </div>
+    <div class="col">
+      <h3 id="incorrectAnswersLabel">INCORRECT &#10006;: <span id="incorrectAnswersNumber"></span>
+    </div>
+  </div>
+</div>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+  var questionNumber = 1;
+  var correctAnswers = 0;
+  var incorrectAnswers = 0;
+  var clickingEnabled = true;
+  var intervalId;
+  var timeRemaining = 21;
+
+  if ($("#categoryLabel").hasClass("movies")) {
+    $("#categoryEmojisLeft").html("&#127916;");
+    $("#categoryEmojisRight").html("&#127909;");
+  }
+  else if ($("#categoryLabel").hasClass("animals")) {
+    $("#categoryEmojisLeft").html("&#128049;");
+    $("#categoryEmojisRight").html("&#128054;");
+  }
+  else if ($("#categoryLabel").hasClass("sports")) {
+    $("#categoryEmojisLeft").html("&#9917;");
+    $("#categoryEmojisRight").html("&#127944;");
+  }
+  for (i = 0; i < 10; i++) {
+    $(".question" + i).css("background", "url(" + $(".question" + i).data("background") + ")");
+    console.log($(".question" + i).css("background"));
+  }
+
+  $("#questionNumber").text(questionNumber);
+  $("#correctAnswersNumber").text(correctAnswers);
+  $("#incorrectAnswersNumber").text(incorrectAnswers);
+
+
+  function nextQuestion(clickingEnabled) {
+    $(".question" + questionNumber).fadeIn(1000);
+    $(".answer").on("click", function () {
+      if (clickingEnabled === true) {
+        clickingEnabled = false;
+        let id = $(this).data("id");
+        let answer = $(this).data("answer");
+        $(".userAnsweredQuestion" + id).addClass(answer);
+        $(".userAnsweredQuestion" + id).text(answer)
+        $(".correctAnswerQuestion" + id).fadeIn();
+        if ($(this).data("answer") === $(this).data("correct")) {
+          correctAnswers++;
+          $("#correctAnswersNumber").text(correctAnswers);
+        }
+        else {
+          incorrectAnswers++;
+          $("#incorrectAnswersNumber").text(incorrectAnswers);
+        }
+        console.log("# CORRECT ANSWERS: " + correctAnswers);
+        setTimeout(function () {
+          $(".question" + id).fadeOut(1000);
+        }, 2500)
+        setTimeout(function () {
+          questionNumber++;
+          if (questionNumber === 11) {
+            $(".questionNumberLabel").remove();
+            /* ==============================================
+            SENDS THE USER'S SCORE TO THE SERVER TO ADD TO
+            THE USERBOARDS/SEQUELIZE INTO PLAYER STATS TABLE
+            =================================================
+              $.post("/api/user", function(gameData) {
+                
+              })
+            */
+            $("#continueScreen").fadeIn();
+          }
+          $("#questionNumber").text(questionNumber);
+          $(".question" + questionNumber).fadeIn();
+          return clickingEnabled = true;
+          console.log("CLICKING ENABLED");
+        }, 3500)
+      }
+      else {
+        console.log("CLICKING DISABLED")
+      }
+    })
+  }
+
+  nextQuestion(clickingEnabled);
+
+
+</script>
