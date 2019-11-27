@@ -64,16 +64,10 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="public/js/index.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/login.js"></script>
+{{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
 <script>
-    $('#user-submit').on('submit', function () {
-        event.preventDefault();
-        let userInfo = {
-            email: $('#email-input').val().trim(),
-            password: $('#password-input').val().trim()
-        }
-    });
+    
     $('#login-btn').on('click', function () {
         $('#gif-row').css('display', 'none');
         $('#login-card').css('display', 'flex');

@@ -9,8 +9,8 @@ $('#signup-button').on("click", function(e) {
     //console.log(user); //success
     $.post("/api/user_data", user, function(data) {
 
-        window.location.href = '/members';
-        // console.log(data);
+        // window.location.href = '/login';
+        console.log(data);
     })
 });
 
