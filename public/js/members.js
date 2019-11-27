@@ -5,13 +5,12 @@ $(document).ready(function () {
   let avatarCol = $('#avatar-col');
 
   // Updates members.html to display the username of current user...
-  $.get("/api/user_data").then(function (data) {
-    $(".member-name").text(data.email);
-  });
+  // $.get("/api/user_data").then(function (data) {
+  //   $(".member-name").text(data.email);
+  // });
 
   function getUsers() {
     $.get('/api/user_data', function (data) {
-      // console.log("Users", data);
       users = data;
       if (!users) {
         displayEmpty();
@@ -21,9 +20,6 @@ $(document).ready(function () {
         avatarCol.append(addUsersData(users));
       }
     });
-
-
-
     
   }
   getUsers();
