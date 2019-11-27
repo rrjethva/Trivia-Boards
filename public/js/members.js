@@ -2,7 +2,8 @@ $(document).ready(function () {
   // Updates members.html to display the username of current user...
   let users;
   let statsCol = $('#stats-col');
-  console.log(statsCol);
+  let avatarCol = $('#avatar-col');
+
   // Updates members.html to display the username of current user...
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.email);
@@ -17,11 +18,13 @@ $(document).ready(function () {
         console.log('empty');
       }
       else {
-        statsCol.empty();
-        statsCol.append(addUsersData(users));
+        avatarCol.append(addUsersData(users));
       }
     });
 
+
+
+    
   }
   getUsers();
 
@@ -33,13 +36,19 @@ $(document).ready(function () {
     let newUserPoints = $("<h2>");
     let newUserQuestions = $("<h2>");
     let newUserPercentage = $("<h2>");
+    let newUserAvatar = $("<img>");
     // let newUserOverall = $("<h2>");
     newUserPoints.text(user.email);
-    newUserQuestions.text(user.answered);
-    newUserPercentage.text(user.correct / user.answered);
+    // newUserQuestions.text(user.answered);
+    // newUserPercentage.text(user.correct / user.answered);
     // newUserOverall.text(user.);
 
-    newUserTitle.append("Your Profile");
+    // newUserTitle.append("Your Profile");
+
+    newUserAvatar.attr( {
+      'src': 'https://previews.123rf.com/images/nexusby/nexusby1810/nexusby181000286/111362910-default-avatar-placeholder-profile-icon-male.jpg',
+      'id': "default-image"
+    });
 
     var newTotalPoints = $("<div>");
     newTotalPoints.attr("id", "total-points");
@@ -53,7 +62,7 @@ $(document).ready(function () {
     newTotalPercentage.attr("id", "total-percentage");
     newTotalPercentage.append(newUserPercentage);
 
-    newUserCard.append(newUserTitle, newUserDate, newUserPoints, newUserQuestions, newUserPercentage);
+    newUserCard.append(newUserAvatar, newUserTitle, newUserDate, newUserPoints, newUserQuestions, newUserPercentage);
     newUserCard.data("user", user);
     return newUserCard;
   }
