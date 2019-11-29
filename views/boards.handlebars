@@ -32,7 +32,7 @@
 
     <div id="leaderboardsDiv" class="text-center">
 
-        <div id="allLeaderboardDiv" class="collapse show text-center">
+        <div id="allLeaderboardDiv" class="collapse text-center">
             <h2 class="tableTitleAll">
                 <span class="titleEmojiAll">&#127941;&#127942;</span> 
                 ALL
@@ -111,13 +111,20 @@
                             </tbody>
                         </table>
                     </div>
-
-
     </div>
 
 
-    
-
+    <p id="leaderboardsBodyText">Leaderboards reset after 24 hours and yesterday's questions get replaced. Once you complete a trivia category, you can't
+        play it again until tomorrow! Compete daily against players across the globe for the top three spots!
+    </p>
+    <div id="topPlayerDiv" class="card text-center">
+        <div id="topPlayerBody" class="card-body">
+            <h5 class="card-title">TOP PLAYER OF THE DAY:</h5>
+            <p class="card-text">
+                {{> leaderboards/topPlayer}}
+            </p>
+        </div>
+    </div>
 
 </div>
 
