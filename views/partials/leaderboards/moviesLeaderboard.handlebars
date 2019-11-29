@@ -1,0 +1,64 @@
+{{#each moviesLeaderboard}}
+{{!-- This will create a new  --}}
+<div id="rank{{this.id}}Div" class="rank{{this.id}} {{this.username}}" data-username="{{this.username}}"
+    data-id="{{this.id}}" data-score="{{this.score}}">
+    <td class="rank{{this.id}}Rank rank{{this.id}} rank">
+        {{this.id}}
+    </td>
+    <td class="rank{{this.id}}Username rank{{this.id}} username">
+        {{this.username}}
+    </td>
+    <td class="rank{{this.id}}Category rank{{this.id}} {{this.category}}Category category">
+        {{this.category}}
+    </td>
+    <td class="rank{{this.id}}Score rank{{this.id}} score">
+        {{this.score}}
+    </td>
+</div>
+{{/each}}
+
+
+<!--
+===============================================================
+***************************************************************
+
+ These are DEMO SCRIPTS to demonstrate what the intended output
+ should look like. NOT PRODUCTION CODE! Make sure to COMMENT
+ OUT BEFORE PUSHING/UPDATING TO MASTER BRANCH  OR DEPLOYING!
+
+***************************************************************
+===============================================================
+-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $("body").append("<h1 class='demoText' style='font-size: 50px;'>THIS IS DEMO CODE! COMMENT OUT!</h1>" + 
+    "<br><br><p class='demoTextDesc'>Check handlebars partial files!</p>")
+    for (i = 1; i < 11; i++) {
+
+        let newTr = $("<tr id='rank" + i + "Row' class='demoTable'" +
+            "data-username='username" + i + "' data-id='" + i +
+            "' data-score='" + i + "'>");
+
+        let newTdId = $("<td class='rank" + i + "Rank rank" +
+            i + " rank'>" + i + "</td>");
+
+        $(newTr).append(newTdId);
+
+        let newTdUsername = $("<td class='rank" + i + "Username username" +
+            i + " rank" + i + "'>username" + i + "</td>");
+
+        $(newTr).append(newTdUsername);
+
+        let newTdCategory = $("<td class='rank" + i + "Category rank" +
+            i + " moviesCategory category'>MOVIES</td>");
+
+        $(newTr).append(newTdCategory);
+
+        let newTdScore = $("<td class='rank" + i + "Score rank" +
+            i + " score'>" + i + "</td>");
+
+        $(newTr).append(newTdScore);
+
+        $("#moviesLeaderboardTable").append(newTr);
+    }
+</script>

@@ -10,31 +10,33 @@
     <div id="leaderboardButtons" class="text-center">
         <div class="row">
             <div class="col">
-                <button class="btn btn-primary leaderboardButton all" style="width: 100%" data-target="#allLeaderboardDiv" data-toggle="collapse"
+                <button id="allButton" class="btn btn-primary leaderboardButton all" style="width: 100%" data-target="#allLeaderboardDiv" data-toggle="collapse"
                     aria-expanded="false" aria-controls="allLeaderboardDiv">ALL</button>
             </div>
             <div class="col">
-                <button class="btn btn-warning leaderboardButton animals" style="width: 100%" data-target="#animalsLeaderboardDiv" data-toggle="collapse"
+                <button id="animalsButton" class="btn btn-warning leaderboardButton animals" style="width: 100%" data-target="#animalsLeaderboardDiv" data-toggle="collapse"
                     aria-expanded="false" aria-controls="animalsLeaderboardDiv">&#128049;</button>
             </div>
             <div class="col">
-                <button class="btn btn-danger leaderboardButton movies" style="width: 100%" data-target="#moviesLeaderboardDiv" data-toggle="collapse"
+                <button id="moviesButton" class="btn btn-danger leaderboardButton movies" style="width: 100%" data-target="#moviesLeaderboardDiv" data-toggle="collapse"
                     aria-expanded="false" aria-controls="moviesLeaderboardDiv">&#127916;</button>
             </div>
             <div class="col">
-                    <button class="btn btn-success leaderboardButton sports" style="width: 100%" data-target="#sportsLeaderboardDiv" data-toggle="collapse"
+                    <button id="sportsButton" class="btn btn-success leaderboardButton sports" style="width: 100%" data-target="#sportsLeaderboardDiv" data-toggle="collapse"
                         aria-expanded="false" aria-controls="sportsLeaderboardDiv">&#127944;</button>
                 </div>
         </div>
     </div>
 
+
+
     <div id="leaderboardsDiv" class="text-center">
 
         <div id="allLeaderboardDiv" class="collapse show text-center">
-            <h2 class="tableTitle">
-                <span class="titleEmoji">&#127941;&#127942;</span> 
+            <h2 class="tableTitleAll">
+                <span class="titleEmojiAll">&#127941;&#127942;</span> 
                 ALL
-                <span class="titleEmoji">&#127942;&#127941;</span></h2>
+                <span class="titleEmojiAll">&#127942;&#127941;</span></h2>
             <table class="table table-dark">
                 <thead class="thead-dark">
                     <tr>
@@ -44,12 +46,79 @@
                         <th>SCORE</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {{> leaderboards/leaderboards}}
+                <tbody id="allLeaderboardsTable">
+                    {{> leaderboards/allLeaderboards}}
                 </tbody>
             </table>
         </div>
+
+        <div id="animalsLeaderboardDiv" class="collapse text-center">
+                <h2 class="tableTitleAnimals">
+                    <span class="titleEmojiAnimals">&#128054;&#128049;</span> 
+                    ANIMALS
+                    <span class="titleEmojiAnimals">&#128049;&#128054;</span></h2>
+                <table class="table table-dark">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>USER</th>
+                            <th>CATEGORY</th>
+                            <th>SCORE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="animalsLeaderboardTable">
+                        {{> leaderboards/animalsLeaderboard}}
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="moviesLeaderboardDiv" class="collapse text-center">
+                    <h2 class="tableTitleMovies">
+                        <span class="titleEmojiMovies">&#127909;&#127916;</span> 
+                        MOVIES
+                        <span class="titleEmojiMovies">&#127916;&#127909;</span></h2>
+                    <table class="table table-dark">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>USER</th>
+                                <th>CATEGORY</th>
+                                <th>SCORE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="moviesLeaderboardTable">
+                            {{> leaderboards/moviesLeaderboard}}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="sportsLeaderboardDiv" class="collapse text-center">
+                        <h2 class="tableTitleSports">
+                            <span class="titleEmojiSports">&#127944;&#9917;</span> 
+                            SPORTS
+                            <span class="titleEmojiSports">&#9917;&#127944;</span></h2>
+                        <table class="table table-dark">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>USER</th>
+                                    <th>CATEGORY</th>
+                                    <th>SCORE</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sportsLeaderboardTable">
+                                {{> leaderboards/sportsLeaderboard}}
+                            </tbody>
+                        </table>
+                    </div>
+
+
     </div>
+
+
+    
+
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -64,5 +133,63 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script>
+
+    $(".rank1Rank").html("&#129351;");
+    $(".rank2Rank").html("&#129352;");
+    $(".rank3Rank").html("&#129353;");
+    $(".animalsCategory").html("&#128049;");
+    $(".moviesCategory").html("&#127916;");
+    $(".sportsCategory").html("&#127944;");
+
+    // ==========================================================
+    // =================== EVENT LISTENERS ======================
+    // ==========================================================
+
+    $(".leaderboardButton").on("click", function() {
+    if ($(this).is("#allButton")) {
+        if ($("#animalsLeaderboardDiv").hasClass("show")) {
+            $("#animalsLeaderboardDiv").removeClass("show");
+        }
+        if ($("#moviesLeaderboardDiv").hasClass("show")) {
+            $("#moviesLeaderboardDiv").removeClass("show");
+        }
+        if ($("#sportsLeaderboardDiv").hasClass("show")) {
+            $("#sportsLeaderboardDiv").removeClass("show");
+        }
+    }
+    else if ($(this).is("#animalsButton")) {
+        if ($("#allLeaderboardDiv").hasClass("show")) {
+            $("#allLeaderboardDiv").removeClass("show");
+        }
+        if ($("#moviesLeaderboardDiv").hasClass("show")) {
+            $("#moviesLeaderboardDiv").removeClass("show");
+        }
+        if ($("#sportsLeaderboardDiv").hasClass("show")) {
+            $("#sportsLeaderboardDiv").removeClass("show");
+        }
+    }
+    else if ($(this).is("#moviesButton")) {
+        if ($("#allLeaderboardDiv").hasClass("show")) {
+            $("#allLeaderboardDiv").removeClass("show");
+        }
+        if ($("#animalsLeaderboardDiv").hasClass("show")) {
+            $("#animalsLeaderboardDiv").removeClass("show");
+        }
+        if ($("#sportsLeaderboardDiv").hasClass("show")) {
+            $("#sportsLeaderboardDiv").removeClass("show");
+        }
+    }
+    else if ($(this).is("#sportsButton")) {
+        if ($("#allLeaderboardDiv").hasClass("show")) {
+            $("#allLeaderboardDiv").removeClass("show");
+        }
+        if ($("#animalsLeaderboardDiv").hasClass("show")) {
+            $("#animalsLeaderboardDiv").removeClass("show");
+        }
+        if ($("#moviesLeaderboardDiv").hasClass("show")) {
+            $("#moviesLeaderboardDiv").removeClass("show");
+        }
+    }
+    });
 
 </script>

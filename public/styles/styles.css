@@ -13,6 +13,7 @@ label {
 }
 th {
   user-select: none;
+  z-index: 1000 !important;
 }
 .list-group-item {
   line-height: 2.5;
@@ -211,17 +212,122 @@ th {
   font-size: 30px;
   margin-top: -33px;
 }
-.tableTitle {
+.tableTitleAll {
   user-select: none;
   font-size: 90px;
   color: white;
 }
-#allLeaderboardDiv {
-  background: rgb(80, 80, 80);
+.tableTitleAnimals {
+  user-select: none;
+  font-size: 70px;
+  color: white;
 }
-.titleEmoji {
+.tableTitleMovies {
+  user-select: none;
+  font-size: 70px;
+  color: white;
+}
+.tableTitleSports {
+  user-select: none;
+  font-size: 70px;
+  color: white;
+}
+#allLeaderboardDiv {
+  background: rgb(28, 133, 231);
+}
+#animalsLeaderboardDiv {
+  background: rgb(219, 116, 32);
+}
+#moviesLeaderboardDiv {
+  background: rgb(219, 40, 40);
+}
+#sportsLeaderboardDiv {
+  background: rgb(65, 182, 84);
+}
+.titleEmojiAll {
   user-select: none;
   position: relative;
   top: -20px;
   font-size: 40px;
+}
+.titleEmojiAnimals {
+  user-select: none;
+  position: relative;
+  top: -10px;
+  font-size: 40px;
+}
+.titleEmojiMovies {
+  user-select: none;
+  position: relative;
+  top: -10px;
+  font-size: 40px;
+}
+.titleEmojiSports {
+  user-select: none;
+  position: relative;
+  top: -10px;
+  font-size: 40px;
+}
+.rank1 {
+  background: radial-gradient( rgb(247, 203, 60), rgb(212, 127, 15));
+}
+.rank1Rank {
+  text-shadow: 0px 0px 20px rgb(255, 136, 0);
+}
+.rank1Username, .rank1Category, .rank1Score {
+  font-weight: bold;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+#rank1Row {
+  border-bottom: 5px rgb(255, 166, 0) solid !important;
+}
+.rank2 {
+  background: radial-gradient( rgb(153, 153, 153), rgb(92, 92, 92));
+}
+.rank2Rank {
+  text-shadow: 0px 0px 20px rgb(255, 255, 255);
+}
+.rank2Username, .rank2Category, .rank2Score {
+  font-weight: bold !important;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+#rank2Row {
+  border-bottom: 5px rgb(56, 56, 56) solid !important;
+}
+.rank3 {
+  background: radial-gradient( rgb(165, 73, 50), rgb(131, 54, 31));
+}
+.rank3Rank {
+  text-shadow: 0px 0px 20px rgb(241, 70, 18);
+}
+.rank3Username, .rank3Category, .rank3Score {
+  font-weight: bold !important;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+#rank3Row {
+  border-bottom: 5px rgb(100, 43, 18) solid !important;
+}
+
+.demoText {
+  width: 100%;
+  text-align: center !important;
+  color: rgb(255, 153, 0);
+  animation: demoFlash 2s infinite ease-in-out;
+  position: fixed; bottom: 10px;
+}
+@keyframes demoFlash {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.demoTextDesc {
+  width: 100%;
+  text-align: center !important;
+  position: fixed; bottom: -15px;
+  margin-top: 50px !important;
+  color: rgb(255, 153, 0);
+  animation: demoFlash 2s infinite ease-in-out;
+}
+#animalsLeaderboardDiv, #allLeaderboardDiv, #moviesLeaderboardDiv, #sportsLeaderboardDiv {
+  padding: 15px;
 }
