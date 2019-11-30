@@ -21,7 +21,7 @@ $(document).ready(function () {
         console.log('users exist');
       }
     });
-    
+
   }
   getUsers();
 
@@ -35,16 +35,16 @@ $(document).ready(function () {
     let newUserPercentage = $("<h2>");
     let newUserAvatar = $("<img>");
     // let newUserOverall = $("<h2>");
-    newUserPoints.text(user.email);
+    newUserPoints.text("Points so far: " + user.points);
     // newUserQuestions.text(user.answered);
     // newUserPercentage.text(user.correct / user.answered);
     // newUserOverall.text(user.);
 
     // newUserTitle.append("Your Profile");
 
-    newUserAvatar.attr( {
+    newUserAvatar.attr({
       'src': 'https://previews.123rf.com/images/nexusby/nexusby1810/nexusby181000286/111362910-default-avatar-placeholder-profile-icon-male.jpg',
-      'id': "default-image"
+      'width': '200em'
     });
 
     var newTotalPoints = $("<div>");
@@ -56,7 +56,10 @@ $(document).ready(function () {
     newTotalQuestions.append(newUserQuestions);
 
     let newTotalPercentage = $("<div>");
-    newTotalPercentage.attr("id", "total-percentage");
+    newTotalPercentage.attr({
+      "id": "total-percentage",
+      "width": "30em"
+    });
     newTotalPercentage.append(newUserPercentage);
 
     newUserCard.append(newUserAvatar, newUserTitle, newUserDate, newUserPoints, newUserQuestions, newUserPercentage);
