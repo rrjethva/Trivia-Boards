@@ -1,0 +1,40 @@
+{{#each topPlayer}}
+<div class="row">
+    <div class="col">
+        <img class="topPlayerProfileImage" src="{{this.profileImage}}">
+    </div>
+    <div class="col">
+        <h2 class="topPlayerUsername">{{this.playerUsername}}</h2>
+        <h1 class="topPlayerScore">TOTAL: {{this.totalScore}}</h1>
+        <h2 class="topPlayerAnimalsScore">&#128049;: {{this.animalsScore}}</h2>
+        <h2 class="topPlayerMoviesScore">&#127916;: {{this.moviesScore}}</h2>
+        <h2 class="topPlayerSportsScore">&#127944;: {{this.sportsScore}}</h2>
+    </div>
+</div>
+{{/each}}
+
+<!--
+===============================================================
+***************************************************************
+
+ This is DEMO CODE to demonstrate what the intended output
+ should look like. NOT PRODUCTION CODE! Make sure to COMMENT
+ OUT BEFORE PUSHING/UPDATING TO MASTER BRANCH  OR DEPLOYING!
+
+***************************************************************
+===============================================================
+-->
+
+<div class="row">
+    <div class="col">
+        <img class="topPlayerProfileImage"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4pHAn5jfGYxgywxTopmRl6zpt1JiJbJ8FVDnjoPJagwYnKpdJ&s">
+    </div>
+    <div class="col">
+        <h2 class="topPlayerUsername">TEST USER</h2>
+        <h1 class="topPlayerScore">SCORE: 3000</h1>
+        <h2 class="topPlayerAnimalsScore">&#128049;: 1000</h2>
+        <h2 class="topPlayerMoviesScore">&#127916;: 1000</h2>
+        <h2 class="topPlayerSportsScore">&#127944;: 1000</h2>
+    </div>
+</div>
