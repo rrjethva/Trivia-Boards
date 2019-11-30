@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row" id="login-card">
             <div class="col-8">
-                <div class="card" id="welcome-card">
-                    <img src="https://i.ibb.co/zXZCQFJ/welcome-image.png" class="card-img-top" alt="...">
+                <div class="card" style="border: none;" id="welcome-card">
+                    <img src="styles/siteLogo.png" id="loginLogo" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><u>Login to TriviaBoards</u></h5>
                         <form>
@@ -24,7 +24,7 @@
         </div>
         <div class="row" id="gif-row">
             <div class="col-sm-8" id="gif-col">
-                <img id="preview-gif" src="https://media.giphy.com/media/xT5LMx8L9rZtLGgCL6/giphy.gif">
+                <img id="siteLogo" src="styles/siteLogo.png">
             </div>
             <br>
             <button type="submit" class="btn btn-info" id="login-btn">Login</button>
@@ -32,6 +32,9 @@
             <a href="/signup">
                 <button class="btn btn-success" id="account-btn">Create an account</button>
             </a>
+        </div>
+                <div id="promoVideo" class="text-center">
+            <iframe id="iframePromo" width="300" height="250" src="https://www.youtube.com/embed/9uX1gGGS628" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="row" id="signup-form">
             <div class="col-sm-10" id="signup-col">
@@ -63,11 +66,13 @@
     </div>
 </div>
 
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="public/js/index.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     $('#user-submit').on('submit', function () {
+        $("#promoVideo").hide();
         event.preventDefault();
         let userInfo = {
             email: $('#email-input').val().trim(),
@@ -75,6 +80,7 @@
         }
     });
     $('#login-btn').on('click', function () {
+        $("#promoVideo").hide();
         $('#gif-row').css('display', 'none');
         $('#login-card').css('display', 'flex');
     });

@@ -1,6 +1,8 @@
 body {
   font-family: 'Staatliches', cursive;
-  background-color: #18D6B8;
+  /* background-color: #18D6B8; */
+  background: url("background.png");
+  overflow-x: hidden;
 }
 h5 {
   font-size: 50px;
@@ -15,8 +17,31 @@ th {
   user-select: none;
   z-index: 1000 !important;
 }
+.card {
+  background: rgb(48, 48, 48);
+  color: white;
+}
 .list-group-item {
   line-height: 2.5;
+}
+#account-btn {
+  position: relative;
+  bottom: 165px;
+  filter: drop-shadow(0px 0px 20px black) !important;
+  font-size: 25px;
+}
+#login-btn {
+  position: relative;
+  bottom: 155px;
+  width:50%;
+  margin: 0 auto;
+  background: rgb(50, 161, 205) !important;
+  filter: drop-shadow(0px 0px 20px black) !important;
+  font-size: 35px;
+  text-shadow: 0px 0px 10px black;
+}
+#login-btn:hover {
+  background: rgb(25, 90, 116) !important;
 }
 .container {
   display: flex;
@@ -28,10 +53,39 @@ th {
 }
 #welcome-card {
   width: 26rem;
-  border: 1px solid black;
+}
+#loginLogo {
+  position: relative;
+  animation: wiggle 2s infinite ease;
+}
+#siteLogo {
+  position: relative;
+  top: -100px;
+  animation: wiggle 2s infinite ease;
+}
+#iframePromo {
+  width: 500px;
+  border-radius: 3px;
+  border: 8px rgb(17, 93, 156) solid;
+  filter: drop-shadow(0px 20px 50px rgba(26, 41, 49, 0.63));
+  box-shadow: 0px 0px 20px 20px rgba(9, 68, 136, 0.425);
+}
+#promoVideo {
+  position: absolute;
+  bottom: 0;
+}
+@keyframes wiggle {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(-5deg);}
+  50% {transform: rotate(0deg);}
+  75% {transform: rotate(5deg);}
+  100% {transform: rotate(0deg);}
 }
 #login-card {
   display: none;
+  background: rgb(48, 48, 48);
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px 20px rgba(9, 68, 136, 0.747);
 }
 #gif-row {
   display: flex;
@@ -39,6 +93,9 @@ th {
 }
 #signup-form {
   display: none;
+}
+#signupWrapper {
+  margin-top: 50px;
 }
 #error-card {
   width: 35rem;
