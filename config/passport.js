@@ -8,7 +8,7 @@ passport.use(new LocalStrategy(
     // Username in the form of an email
     { usernameField: "email" },
     function(email, password, done) {
-      console.log(email)
+      console.log('email: ' + email)
       // When user submits login creds, this code will execute.
       db.User.findOne({
 

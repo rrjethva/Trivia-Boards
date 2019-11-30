@@ -14,6 +14,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
+  User.sync();
 
   User.associate = function (models) {
     User.belongsToMany(models.Score, {
