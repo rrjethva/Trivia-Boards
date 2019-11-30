@@ -24,6 +24,13 @@ module.exports = function (app) {
   app.get("/game/category/sports", function(req, res) {
     res.render('game', {questions: [...questions.category.sports], category: "sports"});
   })
+  app.get("/game/category/music", function(req, res){
+    res.render('game', {questions: [...questions.category.music], category: "music"});
+  })
+  app.get("/game/category/geography", function(req, res){
+    res.render('game', {questions: [...questions.category.geography], category: "geography"});
+  })
+
 
 
   app.get("/signup", function (req, res) {
