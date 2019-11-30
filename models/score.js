@@ -1,6 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
 
     var Score = sequelize.define("Score", {
+        email: DataTypes.STRING,
         answered: DataTypes.INTEGER,
         correct: DataTypes.INTEGER,
         totalScore: DataTypes.INTEGER
