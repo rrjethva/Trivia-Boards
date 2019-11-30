@@ -4,7 +4,6 @@ var passport = require("../config/passport");
 
 module.exports = function (app) {
 
-
   // =================================================================
   // ======================= PASSPORT ROUTES =========================
   // =================================================================
@@ -50,7 +49,7 @@ module.exports = function (app) {
       return res.json({});
     }
     // // IF the user is not logged in....
-    db.User.findOne({
+    db.User.findAll({
       where: {
         email: req.user.email
       }

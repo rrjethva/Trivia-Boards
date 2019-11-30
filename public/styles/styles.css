@@ -66,6 +66,8 @@ th {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background: white;
+  min-width: 35vw;
 }
 .question {
   color: white;
