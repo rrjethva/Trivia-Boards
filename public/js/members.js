@@ -8,7 +8,7 @@ $(document).ready(function () {
   // $.get("/api/user_data").then(function (data) {
   //   $(".member-name").text(data.email);
   // });
-
+  console.log('members');
   function getUsers() {
     $.get('/api/user_data', function (data) {
       users = data;
@@ -18,6 +18,7 @@ $(document).ready(function () {
       }
       else {
         avatarCol.append(addUsersData(users));
+        console.log('users exist');
       }
     });
     

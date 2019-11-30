@@ -32,60 +32,37 @@ module.exports = function (app) {
 
 
   app.post("/api/user_data", function (req, res) {
-    // console.log("helllllo"); //success
-    console.log(req.body);
     db.User.create({
       email: req.body.email,
       password: req.body.password
     })
       // .then(function () { res.render('members', { email: req.body.email }) })
       .then(function (dbPost) {
-        res.status(201).json(dbPost.email);
+        return res.json(dbPost);
       })
       .catch(function (err) { res.status(401).json(err); });
   });
 
-  // app.post("/api/posts", function(req, res) {
-  //   console.log(req.body);
-  //   db.Post.create({
-  //     title: req.body.title,
-  //     body: req.body.body,
-  //     category: req.body.category
-  //   })
-  //     .then(function(dbPost) {
-  //       res.json(dbPost);
-  //     });
-  // });
 
   // Gets user data for use in client-side JS...
   app.get("/api/user_data", function (req, res) {
-    console.log(req.body);
+    if(!req.user){
+      return res.json({});
+    }
     // // IF the user is not logged in....
-
-    // Return JSON with username and user ID...
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
+    db.User.findOne({
+      where: {
+        email: req.user.email
+      }
+    })
+      .then(function (dbUser) {
+        res.json({
+          email: req.user.email,
+          id: req.user.id
+        });
+      });
   });
 
-
-
-  // app.post("/api/characters", function(req, res) {
-  //   // req.body hosts is equal to the JSON post sent from the user
-  //   // This works because of our body parsing middleware
-  //   var newCharacter = req.body;
-
-  //   // Using a RegEx Pattern to remove spaces from newCharacter
-  //   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  //   newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
-
-  //   console.log(newCharacter);
-
-  //   characters.push(newCharacter);
-
-  //   res.json(newCharacter);
-  // });
 
 
   // =====================================================
@@ -103,13 +80,6 @@ module.exports = function (app) {
 
 
 
-  // app.get("/api/todos", function(req, res) {
-  //   // findAll returns all entries for a table when used with no options
-  //   db.Todo.findAll({}).then(function(dbTodo) {
-  //     // We have access to the todos as an argument inside of the callback function
-  //     res.json(dbTodo);
-  //   });
-  // });
 
 
 
