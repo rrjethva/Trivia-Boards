@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
     });
     UserScore.associate = function(models){
         UserScore.belongsTo(models.User, {foreignKey: 'userId'})
-        UserScore.belongsTo(models.Score, {foreingKey: 'scoreId'})
+        UserScore.belongsTo(models.Score, {foreignKey: 'scoreId'})
     }
     return UserScore;
 };
