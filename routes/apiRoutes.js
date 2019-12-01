@@ -76,12 +76,11 @@ module.exports = function (app) {
       .catch(function (err) { res.status(401).json(err); });
   });
 
-
   // Gets user data for use in client-side JS...
   app.get("/api/scores", function (req, res) {
-    if (!req.score) {
-      return res.json({});
-    }
+    // if (!req.score) {
+    //   return res.json({});
+    // }
     // // IF the user is not logged in....
     db.Score.findAll({
     })
@@ -91,10 +90,11 @@ module.exports = function (app) {
           answered: req.score.answered,
           correct: req.score.correct,
           totalScore: req.score.totalScore,
-          id: req.user.id
+          id: req.score.id
         });
       });
   });
+
 
   // =====================================================
   // ================ USER LOGOUT ROUTE ==================

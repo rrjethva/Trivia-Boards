@@ -8,21 +8,18 @@ $('#signup-button').on("click", function (e) {
     }
     var score = {
         email: $("#email-input").val().trim(), 
-        answered: "0",
-        correct: "0",
-        totalScore: "0"
+        answered: 0,
+        correct: 0,
+        totalScore: 0
     }
-    console.log(score);
     //console.log(user); //success
     $.post("/api/user_data", user, function (data) {
 
         window.location.href = '/login';
-        // console.log(data);
-        //  console.log('printing but aint posting'); //success
+        // console.log(data);//success
     });
     $.post("/api/scores", score, function (data) {
-        // console.log(data);
-        //  console.log('printing but aint posting'); //success
+        //console.log(data);//success
     });
 });
 
