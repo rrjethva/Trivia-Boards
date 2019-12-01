@@ -5,10 +5,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.UUID,
             primaryKey: true,
         },
-        user_id:{
-            type: DataTypes.UUID,
-            allowNull: false,
-        },
+        // user_id:{
+        //     type: DataTypes.UUID,
+        //     // allowNull: false,
+        // },
         answered: DataTypes.INTEGER,
         correct: DataTypes.INTEGER,
         totalScore: DataTypes.INTEGER
