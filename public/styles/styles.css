@@ -20,6 +20,13 @@ th {
 .card {
   background: rgb(48, 48, 48);
   color: white;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  /* justify-content: center; */
+}
+.card img {
+  margin-top: 15px;
 }
 .list-group-item {
   line-height: 2.5;

@@ -8,9 +8,9 @@ $(document).ready(function () {
   // $.get("/api/user_data").then(function (data) {
   //   $(".member-name").text(data.email);
   // });
-  // console.log('members');
   function getUsers() {
     $.get('/api/user_data', function (data) {
+      //console.log(data);//success
       users = data;
       if (!users) {
         displayEmpty();
@@ -61,6 +61,7 @@ $(document).ready(function () {
   getScores();
 
   function addScoresData(score) {
+    // console.log($(score));
     var newScoreCard = $("<div>");
     newScoreCard.addClass("card");
     let newScorePoints = $("<h2>");
