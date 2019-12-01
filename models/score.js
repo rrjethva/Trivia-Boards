@@ -1,7 +1,15 @@
 module.exports = function (sequelize, DataTypes) {
 
     var Score = sequelize.define("Score", {
-        email: DataTypes.STRING,
+        // email: DataTypes.STRING,
+        id: {
+            type: DataTypes.UUID,
+            primaryKey: true,
+        },
+        user_id:{
+            type: DataTypes.UUID,
+            allowNull: false,
+        },
         answered: DataTypes.INTEGER,
         correct: DataTypes.INTEGER,
         totalScore: DataTypes.INTEGER
@@ -9,10 +17,10 @@ module.exports = function (sequelize, DataTypes) {
     
     Score.associate = function (models) {
         Score.belongsToMany(models.User, {
-            through: "LeaderBoard",
-            as: "username",
+            through: "UserScore",
+            as: "users",
             foreignKey: "scoreId",
-            otherKey: "usernameId"
+            // otherKey: "userId"
         });
     };
     return Score;
