@@ -1,6 +1,11 @@
 var bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,10 +23,10 @@ module.exports = function (sequelize, DataTypes) {
 
   User.associate = function (models) {
     User.belongsToMany(models.Score, {
-      through: "LeaderBoard",
-      as: "Score",
-      foreignKey: "usernameId",
-      otherKey: "scoreId"
+      through: "UserScore",
+      as: "scores",
+      foreignKey: "userId",
+      // otherKey: "scoreId"
     });
   };
   User.prototype.validPassword = function (password) {
