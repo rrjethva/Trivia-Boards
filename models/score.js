@@ -1,14 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var Score = sequelize.define("Score", {
-        // email: DataTypes.STRING,
-        id: {
-            type: DataTypes.UUID,
-            primaryKey: true,
-        },
-        user_id:{
-            type: DataTypes.UUID,
-            allowNull: false,
-        },
+        email: DataTypes.STRING,
         answered: DataTypes.INTEGER,
         correct: DataTypes.INTEGER,
         totalScore: DataTypes.INTEGER
@@ -20,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
             through: "UserScore",
             as: "users",
             foreignKey: "scoreId",
-            // otherKey: "userId"
+            otherKey: "userId"
         });
     };
     return Score;

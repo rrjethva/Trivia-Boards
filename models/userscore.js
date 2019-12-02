@@ -1,25 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var UserScore = sequelize.define("UserScore", {
-        id: {
-            type: DataTypes.UUID,
-            primaryKey: true,
-        },
-        userId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'Users',
-                key: 'id'
-            },
-            scoreId: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                references: {
-                    model: 'Score',
-                    key: 'id'
-                },
-            },
-        },
+        username: DataTypes.STRING,
+        totalScore: DataTypes.INTEGER
     });
     UserScore.associate = function(models){
         UserScore.belongsTo(models.User, {foreignKey: 'userId'})
