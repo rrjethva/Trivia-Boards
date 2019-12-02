@@ -4,16 +4,16 @@ module.exports = function (sequelize, DataTypes) {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      // allowNull: false,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
       unique: true,
     },
     password: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
       validate: {
         len: 5
       }
