@@ -108,6 +108,12 @@
   }
 
   nextQuestion(clickingEnabled);
-
+  $("#continueButton").on("click", function() {
+    if $("#categoryLabel").hasClass("animals") {
+         $.post("/api/scores/animals", { email: req.user.email, animalsScore: correctAnswers + 1000 })
+      .then(function() { window.location.replace("/boards"); })
+      .catch(function(err) { console.log(err); }); 
+    }
+  })
 
 </script>

@@ -1,101 +1,77 @@
 $(document).ready(function () {
-  // Updates members.html to display the username of current user...
-  let users;
-  let statsCol = $('#stats-col');
-  let avatarCol = $('#avatar-col');
+$("#bodyWrapper").fadeIn(1000);
+function getUser() {
+  $.get("/api/user_data", function(data) {
+    let user = data;
+    let email = user.email;
+      let emailArr = email.split("@");
+    let username = emailArr[0];
 
-  // Updates members.html to display the username of current user...
-  // $.get("/api/user_data").then(function (data) {
-  //   $(".member-name").text(data.email);
-  // });
-  function getUsers() {
-    $.get('/api/user_data', function (data) {
-      //console.log(data);//success
-      users = data;
-      if (!users) {
-        displayEmpty();
-        // console.log('empty');
+    let animalsScore = user.animalsScore;
+      if (animalsScore === null || animalsScore === "") {
+        animalsScore = "N/A";
       }
-      else {
-        avatarCol.append(addUsersData(users));
-
-        // console.log('users exist');
+    let moviesScore = user.moviesScore;
+      if (moviesScore === null || moviesScore === "") {
+        moviesScore = "N/A";
       }
-    });
-
-  }
-  getUsers();
-
-  function addUsersData(user) {
-    var newUserCard = $("<div>");
-    newUserCard.addClass("card");
-    let newUserTitle = $("<h1>");
-    let newUserAvatar = $("<img>");
-    newUserTitle.text(user.email);
-
-    newUserAvatar.attr({
-      'src': 'https://previews.123rf.com/images/nexusby/nexusby1810/nexusby181000286/111362910-default-avatar-placeholder-profile-icon-male.jpg',
-      'width': '200em'
-    });
-
-    newUserCard.append(newUserAvatar, newUserTitle);
-    newUserCard.data("user", user);
-    return newUserCard;
-  }
-  function getScores() {
-    $.get('/api/scores', function (data) {
-      scores = data;
-      if (!scores) {
-        displayEmpty();
-        // console.log('empty');
+    let sportsScore = user.sportsScore;
+      if (sportsScore === null || sportsScore === "") {
+        sportsScore = "N/A";
       }
-      else {
-        let statsCol = $('#stats-col');
-        statsCol.append(addScoresData(scores));
-        // console.log("scores " + scores);
-        // console.log('scores exist');
-      }
-    });
+    let geographyScore = user.geographyScore;
+    if (geographyScore === null || geographyScore === "") {
+      geographyScore = "N/A";
+    }
+    let musicScore = user.musicScore;
+    if (musicScore === null || musicScore === "") {
+      musicScore = "N/A";
+    }
 
-  }
-  getScores();
+    $("#username").text(username);
+    $("#userAnimalsScore").text(animalsScore);
+    $("#userMoviesScore").text(moviesScore);
+    $("#userSportsScore").text(sportsScore);
+    $("#userGeographyScore").text(geographyScore);
+    $("#userMusicScore").text(musicScore);
+    $("#userImage").attr("src", "https://api.adorable.io/avatars/150/" + username + "@adorable.io.png");
+    console.log(data);
 
-  function addScoresData(score) {
-    // console.log($(score));
-    var newScoreCard = $("<div>");
-    newScoreCard.addClass("card");
-    let newScorePoints = $("<h2>");
-    let newScoreAnswered = $("<h2>");
-    let newScoreCorrect = $("<h2>");
-    let newScorePercentage = $("<h2>");
-    newScorePoints.text("Points so far: " + score.totalScore);
-    newScoreAnswered.text('Answered: ' + score.answered);
-    newScoreCorrect.text('Correct: ' + score.correct);
-    newScorePercentage.text("Percentage: " + ((score.correct / score.answered) * 100) + "%");
+  })
+}
+getUser();
 
-    var newTotalPoints = $("<div>");
-    newTotalPoints.attr("id", "total-points").append(newScorePoints);
 
-    let newAnswered = $("<div>");
-    newAnswered.attr("id", "answered").append(newScoreAnswered);
-
-    let newTotalPercentage = $("<div>");
-    newTotalPercentage.attr("id", "total-percentage").append(newScorePercentage);
-
-    let newCorrect = $("<div>");
-    newScoreCorrect.attr("id", "correct").append(newScoreCorrect);
-
-    newScoreCard.append(newTotalPoints, newAnswered, newTotalPercentage, newCorrect);
-    newScoreCard.data("score", score);
-    return newScoreCard;
-  }
-  function displayEmpty() {
-    statsCol.empty();
-    var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No users yet, navigate <a href='/signup'>here</a> in order to sign up.");
-    statsCol.append(messageH2);
-  }
+$("#animalsPlayButton").on('click', function() {
+  $.get("/game/category/animals", function(req, res) {
+    window.location.replace("/game/category/animals");
+  })
 });
 
+$("#moviesPlayButton").on('click', function() {
+  $.get("/game/category/movies", function(req, res) {
+    window.location.replace("/game/category/movies");
+  })
+});
+
+$("#sportsPlayButton").on('click', function() {
+  $.get("/game/category/sports", function(req, res) {
+    window.location.replace("/game/category/sports");
+  })
+});
+
+$("#geographyPlayButton").on('click', function() {
+  $.get("/game/category/geography", function(req, res) {
+    window.location.replace("/game/category/geography");
+  })
+});
+
+$("#musicPlayButton").on('click', function() {
+  $.get("/game/category/music", function(req, res) {
+    window.location.replace("/game/category/music");
+  })
+});
+
+
+});
 

@@ -17,6 +17,9 @@ th {
   user-select: none;
   z-index: 1000 !important;
 }
+#bodyWrapper {
+  display: none;
+}
 .card {
   background: rgb(48, 48, 48);
   color: white;
@@ -30,6 +33,64 @@ th {
 }
 .list-group-item {
   line-height: 2.5;
+}
+#userDiv {
+  background: rgb(48, 48, 48);
+  height: 150px;
+}
+#userScoresDiv {
+  margin-top: 50px;
+  background: rgb(48, 48, 48);
+  height: auto;
+}
+#membersGreeting {
+  position: relative;
+  top: 20px;
+  color: white;
+  font-size:70px;
+}
+#username {
+  color: white;
+}
+#userImage {
+  height: 100px;
+  border-radius: 15px;
+}
+#yourScores {
+  font-size: 50px;
+}
+.btn-purple {
+  background: purple;
+  color: white;
+}
+#animalsPlayButton {
+  color: white !important;
+}
+.membersText {
+  color: white;
+}
+#animalsScoreLabel {
+  color: rgb(255, 208, 0);
+}
+#userMoviesScore, #userAnimalsScore, #userSportsScore, #userGeographyScore, #userMusicScore {
+  color: white;
+}
+#sportsScoreLabel {
+  color: rgb(44, 117, 48);
+}
+#moviesScoreLabel {
+  color: rgb(185, 37, 37);
+}
+#geographyScoreLabel {
+  color: rgb(185, 37, 160);
+}
+#musicScoreLabel {
+  color: rgb(37, 163, 185);
+}
+.scoreLabel {
+  color: white;
+  font-size: 40px;
+  padding-left: 10px;
 }
 #account-btn {
   position: relative;
@@ -55,6 +116,14 @@ th {
   text-align: center;
   justify-content: center;
   align-items: center;
+  /* border: 2px solid black; */
+  height: 100vh;
+}
+.membersContainer {
+  display: block !important;
+  text-align: unset !important;
+  justify-content: unset !important;
+  align-items: unset !important;
   /* border: 2px solid black; */
   height: 100vh;
 }

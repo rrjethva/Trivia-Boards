@@ -1,34 +1,25 @@
-<div id="home">
-    <div class="container">
-        <div class="row" id="member-row">
-            <div class="col-sm-5" id="avatar-col">
-                {{!-- <h1>{{email}}</h1> --}}
-                {{!-- <img id="default-image"
-                    src="https://previews.123rf.com/images/nexusby/nexusby1810/nexusby181000286/111362910-default-avatar-placeholder-profile-icon-male.jpg">
-                <br>
-                <h2>Your nickname</h2>
-                <br>
-                <h3>Your email</h3> --}}
-            </div>
-            <div class="col-sm-7" id="stats-col">
-                <h1>Your Profile</h1>
-                <hr>
-                {{!-- 
-                <div id="total-points">
-                    <h2>Your total points</h2>
-                </div>
-                <div id="total-questions">
-                    <h2>Total questions answered</h2>
-                </div>
-                <div id="percentage-correct">
-                    <h2>Percentage correct</h2>
-                </div>
-                <div id="overall-ranking">
-                    <h2>Overall ranking</h2>
-                </div> --}}
+<div id="bodyWrapper">
+    <div id= "userDiv" class="text-center">
+        <span id="membersGreeting">
+            <u><span id="username">
+                USERNAME
+            </span></u>
+        </span>
+        <img id="userImage" src="https://api.adorable.io/avatars/150/blank@adorable.io.png">
+    </div>
 
-            </div>
-        </div>
+    <div id="userScoresDiv" class="text-center">
+        <h1 id="yourScores" class="membersText">YOUR SCORES:</h1>
+        <h3 id="animalsScoreLabel" class="text-left scoreLabel">ANIMALS: <span id="userAnimalsScore">N/A</span>
+            <button id="animalsPlayButton" class="btn btn-warning float-right" type="button">PLAY!</button></h3>
+        <h3 id="moviesScoreLabel" class="text-left scoreLabel">MOVIES: <span id="userMoviesScore">N/A</span> 
+            <button id="moviesPlayButton" class="btn btn-danger float-right" type="button">PLAY!</button></h3>
+        <h3 id="sportsScoreLabel" class="text-left scoreLabel">SPORTS: <span id="userSportsScore">N/A</span> 
+            <button id="sportsPlayButton" class="btn btn-success float-right" type="button">PLAY!</button></h3>
+        <h3 id="geographyScoreLabel" class="text-left scoreLabel">GEOGRAPHY: <span id="userGeographyScore">N/A</span> 
+            <button id="geographyPlayButton" class="btn btn-purple float-right" type="button">PLAY!</button></h3>
+        <h3 id="musicScoreLabel" class="text-left scoreLabel">MUSIC: <span id="userMusicScore">N/A</span> 
+            <button id="musicPlayButton" class="btn btn-info float-right" type="button">PLAY!</button></h3>
     </div>
 </div>
 
