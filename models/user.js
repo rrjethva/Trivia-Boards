@@ -1,19 +1,14 @@
 var bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      // allowNull: false,
-    },
     email: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
       unique: true,
     },
     password: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: false,
       validate: {
         len: 5
       }
@@ -26,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
       through: "UserScore",
       as: "scores",
       foreignKey: "userId",
-      // otherKey: "scoreId"
+      otherKey: "scoreId"
     });
   };
   User.prototype.validPassword = function (password) {
