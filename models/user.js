@@ -12,18 +12,16 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: 5
       }
-    }
+    },
+      totalScore: DataTypes.INTEGER,
+      animalsScore: DataTypes.INTEGER,
+      moviesScore: DataTypes.INTEGER,
+      sportsScore: DataTypes.INTEGER,
+      geographyScore: DataTypes.INTEGER,
+      musicScore: DataTypes.INTEGER,
   });
   User.sync();
 
-  User.associate = function (models) {
-    User.belongsToMany(models.Score, {
-      through: "UserScore",
-      as: "scores",
-      foreignKey: "userId",
-      otherKey: "scoreId"
-    });
-  };
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };

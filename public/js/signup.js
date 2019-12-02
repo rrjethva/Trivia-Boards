@@ -4,7 +4,7 @@ $('#signup-button').on("click", function (e) {
     // console.log("getting the js"); //success
     var user = {
         email: $("#email-input").val().trim(),
-        password: $("#password-input").val().trim()
+        password: $("#password-input").val().trim(),
     }
     var score = {
         email: $("#email-input").val().trim(), 

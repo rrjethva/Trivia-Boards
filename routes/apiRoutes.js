@@ -1,7 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-
 module.exports = function (app) {
 
   // =================================================================
@@ -42,12 +41,12 @@ module.exports = function (app) {
       .catch(function (err) { res.status(401).json(err); });
   });
 
-
   // Gets user data for use in client-side JS...
   app.get("/api/user_data", function (req, res) {
     if (!req.user) {
       return res.json({});
     }
+    console.log(req.user);
     // // IF the user is not logged in....
     db.User.findAll({
       where: {
@@ -57,42 +56,40 @@ module.exports = function (app) {
       .then(function (dbUser) {
         res.json({
           email: req.user.email,
-          id: req.user.id
+          id: req.user.id,
+          animalsScore: req.user.animalsScore,
+          moviesScore: req.user.moviesScore,
+          sportsScore: req.user.sportsScore,
+          geographyScore: req.user.geographyScore,
+          musicScore: req.user.musicScore
         });
       });
   });
 
-  app.post("/api/scores", function (req, res) {
-    db.Score.create({
-      email: req.body.email,
-      answered: req.body.answered,
-      correct: req.body.correct,
-      totalScore: req.body.totalScore
-    })
-      // .then(function () { res.render('members', { email: req.body.email }) })
-      .then(function (dbPost) {
-        return res.json(dbPost);
+  app.post("/api/scores/animals", function (req, res) {
+    db.User.find({ where: {email: req.user.email}
+
+    }).then(function(dbUser) {
+      if (dbUser) {
+        dbUser.update({
+          animalsScore: req.animalsScore
+        })
+      }
+      res.json({
+        email: req.user.email,
+        id: req.user.id,
+        animalsScore: req.user.animalsScore,
+        moviesScore: req.user.moviesScore,
+        sportsScore: req.user.sportsScore,
+        geographyScore: req.user.geographyScore,
+        musicScore: req.user.musicScore
       })
-      .catch(function (err) { res.status(401).json(err); });
+    })
   });
 
   // Gets user data for use in client-side JS...
   app.get("/api/scores", function (req, res) {
-    // if (!req.score) {
-    //   return res.json({});
-    // }
-    // // IF the user is not logged in....
-    db.Score.findAll({
-    })
-      .then(function (dbScore) {
-        res.json({
-          email: req.score.email,
-          answered: req.score.answered,
-          correct: req.score.correct,
-          totalScore: req.score.totalScore,
-          id: req.score.id
-        });
-      });
+
   });
 
 
