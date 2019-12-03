@@ -10,22 +10,32 @@ function getUser() {
     let animalsScore = user.animalsScore;
       if (animalsScore === null || animalsScore === "") {
         animalsScore = "N/A";
+      } else {
+        user.animalsScore;
       }
     let moviesScore = user.moviesScore;
       if (moviesScore === null || moviesScore === "") {
         moviesScore = "N/A";
+      } else {
+        user.moviesScore;
       }
     let sportsScore = user.sportsScore;
       if (sportsScore === null || sportsScore === "") {
         sportsScore = "N/A";
+      } else {
+        user.sportsScore;
       }
     let geographyScore = user.geographyScore;
     if (geographyScore === null || geographyScore === "") {
       geographyScore = "N/A";
+    } else {
+      user.geographyScore;
     }
     let musicScore = user.musicScore;
     if (musicScore === null || musicScore === "") {
       musicScore = "N/A";
+    } else {
+      user.musicScore;
     }
 
     $("#username").text(username);

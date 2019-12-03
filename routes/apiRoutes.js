@@ -66,15 +66,80 @@ module.exports = function (app) {
       });
   });
 
-  app.post("/api/scores/animals", function (req, res) {
-    console.log("\n\n\n\n\n\n\nSUCCESS");
-    console.log(req)
-    res.json({});
+  app.put("/api/scores/animals", function (req, res) {
+    // console.log("\n\n\n\n\n\n\nSUCCESS");
+    // console.log(req.body.score)
+    db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+
+    }).then(function (dbUser) {
+      user.updateAttributes({ animalsScore: req.body.score })
+    });
+  });
+
+  app.put("/api/scores/movies", function (req, res) {
+    // console.log("\n\n\n\n\n\n\nSUCCESS");
+    // console.log(req.body.score)
+    db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+
+    }).then(function (dbUser) {
+      user.updateAttributes({ moviesScore: req.body.score })
+    });
+  });
+
+  app.put("/api/scores/sports", function (req, res) {
+    // console.log("\n\n\n\n\n\n\nSUCCESS");
+    // console.log(req.body.score)
+    db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+
+    }).then(function (dbUser) {
+      user.updateAttributes({ sportsScore: req.body.score })
+    });
+  });
+
+  app.put("/api/scores/geography", function (req, res) {
+    // console.log("\n\n\n\n\n\n\nSUCCESS");
+    // console.log(req.body.score)
+    db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+
+    }).then(function (dbUser) {
+      user.updateAttributes({ geographyScore: req.body.score })
+    });
+  });
+
+  app.put("/api/scores/music", function (req, res) {
+    // console.log("\n\n\n\n\n\n\nSUCCESS");
+    // console.log(req.body.score)
+    db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+
+    }).then(function (dbUser) {
+      user.updateAttributes({ musicScore: req.body.score })
+    });
   });
 
   // Gets user data for use in client-side JS...
   app.get("/api/scores", function (req, res) {
-
+    db.User.findOne({
+      where: {
+        animalsScore: req.body.score
+      }
+    }).then(function (dbUser) {
+      res.json(dbUser)
+    })
   });
 
 
