@@ -35,30 +35,26 @@
   var clickingEnabled = true;
   var intervalId;
   var timeRemaining = 21;
-  $.get("/api/user_data", function(data) { 
-      let email = data.email;
-      var score = {
-        email: data.email,
-        score: correctAnswers * 100
-      }
-      $.post("/api/scores/animals", score, function(req, res) {
-        console.log(score);
-        console.log(req);
-        console.log(res);
-      })
-    })
+
+  let category;
+
   if ($("#categoryLabel").hasClass("movies")) {
     $("#categoryEmojisLeft").html("&#127916;");
     $("#categoryEmojisRight").html("&#127909;");
+    category = "movies";
+    
   }
   else if ($("#categoryLabel").hasClass("animals")) {
     $("#categoryEmojisLeft").html("&#128049;");
     $("#categoryEmojisRight").html("&#128054;");
+    category = "animals";
   }
   else if ($("#categoryLabel").hasClass("sports")) {
     $("#categoryEmojisLeft").html("&#9917;");
     $("#categoryEmojisRight").html("&#127944;");
+    category = "sports";
   }
+  
   for (i = 0; i < 10; i++) {
     $(".question" + i).css("background", "url(" + $(".question" + i).data("background") + ")");
     console.log($(".question" + i).css("background"));
@@ -128,7 +124,7 @@
         email: data.email,
         score: correctAnswers * 100
       }
-      $.post("/api/scores/animals", score, function(req, res) {
+      $.post("/api/scores/" + category, score, function(req, res) {
         console.log(score);
         console.log(req);
         console.log(res);
