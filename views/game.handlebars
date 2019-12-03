@@ -42,7 +42,7 @@
     $("#categoryEmojisLeft").html("&#127916;");
     $("#categoryEmojisRight").html("&#127909;");
     category = "movies";
-    
+
   }
   else if ($("#categoryLabel").hasClass("animals")) {
     $("#categoryEmojisLeft").html("&#128049;");
@@ -54,7 +54,7 @@
     $("#categoryEmojisRight").html("&#127944;");
     category = "sports";
   }
-  
+
   for (i = 0; i < 10; i++) {
     $(".question" + i).css("background", "url(" + $(".question" + i).data("background") + ")");
     console.log($(".question" + i).css("background"));
@@ -86,7 +86,7 @@
           $("#incorrectAnswersNumber").text(incorrectAnswers);
         }
         console.log("# CORRECT ANSWERS: " + correctAnswers);
-        console.log(correctAnswers * 1000);
+        console.log(correctAnswers * 100);
         setTimeout(function () {
           $(".question" + id).fadeOut(1000);
         }, 2500)
@@ -117,43 +117,42 @@
   }
   nextQuestion(clickingEnabled);
 
-  $("#continueButton").on("click", function() {
-    $.get("/api/user_data", function(data) { 
+  $("#continueButton").on("click", function () {
+    $.get("/api/user_data", function (data) {
       let email = data.email;
       var score = {
         email: data.email,
         score: correctAnswers * 100
       }
-      $.put("/api/scores/" + category, score, function(req, res) {
+      console.log(score);
+      $.put("/api/scores/" + category, score, function (req, res) {
         animalsScore: req.body.score;
-        console.log(score);
-        console.log(req);
-        console.log(res);
-      })
-    })
-  })
+      });
+    });
+    window.location.href = '/boards';
+  });
 
   function _ajax_request(url, data, callback, type, method) {
     if (jQuery.isFunction(data)) {
-        callback = data;
-        data = {};
+      callback = data;
+      data = {};
     }
     return jQuery.ajax({
-        type: method,
-        url: url,
-        data: data,
-        success: callback,
-        dataType: type
-        });
-}
+      type: method,
+      url: url,
+      data: data,
+      success: callback,
+      dataType: type
+    });
+  }
 
-jQuery.extend({
-    put: function(url, data, callback, type) {
-        return _ajax_request(url, data, callback, type, 'PUT');
+  jQuery.extend({
+    put: function (url, data, callback, type) {
+      return _ajax_request(url, data, callback, type, 'PUT');
     },
-    delete_: function(url, data, callback, type) {
-        return _ajax_request(url, data, callback, type, 'DELETE');
+    delete_: function (url, data, callback, type) {
+      return _ajax_request(url, data, callback, type, 'DELETE');
     }
-});
+  });
 
 </script>
