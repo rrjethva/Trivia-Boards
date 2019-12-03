@@ -67,24 +67,9 @@ module.exports = function (app) {
   });
 
   app.post("/api/scores/animals", function (req, res) {
-    db.User.find({ where: {email: req.user.email}
-
-    }).then(function(dbUser) {
-      if (dbUser) {
-        dbUser.update({
-          animalsScore: req.animalsScore
-        })
-      }
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        animalsScore: req.user.animalsScore,
-        moviesScore: req.user.moviesScore,
-        sportsScore: req.user.sportsScore,
-        geographyScore: req.user.geographyScore,
-        musicScore: req.user.musicScore
-      })
-    })
+    console.log("\n\n\n\n\n\n\nSUCCESS");
+    console.log(req)
+    res.json({});
   });
 
   // Gets user data for use in client-side JS...

@@ -29,14 +29,24 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-
   var questionNumber = 1;
   var correctAnswers = 0;
   var incorrectAnswers = 0;
   var clickingEnabled = true;
   var intervalId;
   var timeRemaining = 21;
-
+  $.get("/api/user_data", function(data) { 
+      let email = data.email;
+      var score = {
+        email: data.email,
+        score: correctAnswers * 100
+      }
+      $.post("/api/scores/animals", score, function(req, res) {
+        console.log(score);
+        console.log(req);
+        console.log(res);
+      })
+    })
   if ($("#categoryLabel").hasClass("movies")) {
     $("#categoryEmojisLeft").html("&#127916;");
     $("#categoryEmojisRight").html("&#127909;");
@@ -60,6 +70,7 @@
 
 
   function nextQuestion(clickingEnabled) {
+
     $(".question" + questionNumber).fadeIn(1000);
     $(".answer").on("click", function () {
       if (clickingEnabled === true) {
@@ -110,5 +121,19 @@
   }
   nextQuestion(clickingEnabled);
 
+  $("#continueButton").on("click", function() {
+    $.get("/api/user_data", function(data) { 
+      let email = data.email;
+      var score = {
+        email: data.email,
+        score: correctAnswers * 100
+      }
+      $.post("/api/scores/animals", score, function(req, res) {
+        console.log(score);
+        console.log(req);
+        console.log(res);
+      })
+    })
+  })
 
 </script>
