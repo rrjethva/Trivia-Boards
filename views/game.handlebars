@@ -9,7 +9,7 @@
 {{> questions/questions}}
 
 <div id="continueScreen" class="text-center">
-  <h1>YOU GOT <span id="finalScore number">0</span> OUT OF 10 QUESTIONS CORRECT!</h1>
+  <h1>YOU GOT <span id="finalScoreNumber"> </span> OUT OF 10 QUESTIONS CORRECT!</h1>
   <br>
   <button id="continueButton" class="btn btn-primary">GO TO THE LEADERBOARDS!</button>
 </div>
@@ -79,12 +79,14 @@
         if ($(this).data("answer") === $(this).data("correct")) {
           correctAnswers++;
           $("#correctAnswersNumber").text(correctAnswers);
+          $("#finalScoreNumber").html(correctAnswers);
         }
         else {
           incorrectAnswers++;
           $("#incorrectAnswersNumber").text(incorrectAnswers);
         }
         console.log("# CORRECT ANSWERS: " + correctAnswers);
+        console.log(correctAnswers * 1000);
         setTimeout(function () {
           $(".question" + id).fadeOut(1000);
         }, 2500)
@@ -113,8 +115,8 @@
       }
     })
   }
-
   nextQuestion(clickingEnabled);
+
   $("#continueButton").on("click", function() {
     $.get("/api/user_data", function(data) { 
       let email = data.email;
@@ -122,12 +124,36 @@
         email: data.email,
         score: correctAnswers * 100
       }
-      $.post("/api/scores/" + category, score, function(req, res) {
+      $.put("/api/scores/" + category, score, function(req, res) {
+        animalsScore: req.body.score;
         console.log(score);
         console.log(req);
         console.log(res);
       })
     })
   })
+
+  function _ajax_request(url, data, callback, type, method) {
+    if (jQuery.isFunction(data)) {
+        callback = data;
+        data = {};
+    }
+    return jQuery.ajax({
+        type: method,
+        url: url,
+        data: data,
+        success: callback,
+        dataType: type
+        });
+}
+
+jQuery.extend({
+    put: function(url, data, callback, type) {
+        return _ajax_request(url, data, callback, type, 'PUT');
+    },
+    delete_: function(url, data, callback, type) {
+        return _ajax_request(url, data, callback, type, 'DELETE');
+    }
+});
 
 </script>
