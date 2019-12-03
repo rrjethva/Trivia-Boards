@@ -9,7 +9,7 @@
 {{> questions/questions}}
 
 <div id="continueScreen" class="text-center">
-  <h1>YOU GOT <span id="finalScore number">0</span> OUT OF 10 QUESTIONS CORRECT!</h1>
+  <h1>YOU GOT <span id="finalScoreNumber"> </span> OUT OF 10 QUESTIONS CORRECT!</h1>
   <br>
   <button id="continueButton" class="btn btn-primary">GO TO THE LEADERBOARDS!</button>
 </div>
@@ -72,12 +72,14 @@
         if ($(this).data("answer") === $(this).data("correct")) {
           correctAnswers++;
           $("#correctAnswersNumber").text(correctAnswers);
+          $("#finalScoreNumber").html(correctAnswers);
         }
         else {
           incorrectAnswers++;
           $("#incorrectAnswersNumber").text(incorrectAnswers);
         }
         console.log("# CORRECT ANSWERS: " + correctAnswers);
+        console.log(correctAnswers * 1000);
         setTimeout(function () {
           $(".question" + id).fadeOut(1000);
         }, 2500)
@@ -106,14 +108,7 @@
       }
     })
   }
-
   nextQuestion(clickingEnabled);
-  $("#continueButton").on("click", function() {
-    if $("#categoryLabel").hasClass("animals") {
-         $.post("/api/scores/animals", { email: req.user.email, animalsScore: correctAnswers + 1000 })
-      .then(function() { window.location.replace("/boards"); })
-      .catch(function(err) { console.log(err); }); 
-    }
-  })
+
 
 </script>

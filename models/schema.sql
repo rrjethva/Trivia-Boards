@@ -1,10 +1,2 @@
 DROP DATABASE IF EXISTS userdata_db;
 CREATE DATABASE userdata_db;
-
-DROP DATABASE IF EXISTS score_db;
-CREATE DATABASE score_db;
-
-DROP DATABASE IF EXISTS leader_db;
-CREATE DATABASE leader_db;
-
-
